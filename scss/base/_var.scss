@@ -1,0 +1,53 @@
+// 變數
+// --------------------------------------------------
+//== 顏色
+$color-dark:   #2A363B !default;
+$color-light:  #F8F6F6 !default;
+$color-basic:  #CF4647 !default;
+$color-second: #F5D061 !default;
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+//** Background color for `<body>`.
+$body-bg       : #eee !default;
+//** Global text color on `<body>`.
+$text-color    : #222 !default;
+//** Global textual link color.
+$link-color    : #000 !default;
+//** Link hover color set via `darken()` function.
+$link-hover-color: lighten(#000, 40%) !default;
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, and more.
+$font-family-base: arial, STHeiti, "Microsoft YaHei", "微软雅黑", "SimSun", "宋体" !default;
+$font-size-base: 12px !default;
+$line-height-base: normal !default;
+
+
+//頁面寬度
+$container-width: 1000px; //主要置中區塊寬度
+$grid-gutter-width: 0; //主要置中區塊兩邊空隙
+
+
+//目前語系資料夾
+$lang: 'lang/zh-cn/';
+
+//-----------------------------------------------------------------------------------------------------------------------------
+//語系種類
+$lang-kind: Flag; //false=不使用; Flag=使用國旗
+
+//-----------------------------------------------------------------------------------------------------------------------------
+
+//首頁遊戲圖
+$first-game-format: false; //false=不使用; 遊戲圖圖片格式: png or jpg ; 放置在語系中: pnglang or jpglang
+
+
+//-----------------------------------------------------------------------------------------------------------------------------
+//首頁遊戲圖
+$first-slider: true;
+$first-height: image-height('slider.jpg');
+
+

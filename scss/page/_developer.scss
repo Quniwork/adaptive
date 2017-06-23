@@ -1,0 +1,14 @@
+$developer : 0; // 開發者模式=1, 非開發者模式=0
+
+@if $developer == 1 {
+    .ele-obalance-item-wrap {
+        display: block !important;
+        opacity: 1 !important;
+    }
+    .ele-drop-group {
+        display: inline-block !important;
+    }
+    .ele-lang-group {
+        display: block;
+    }
+}

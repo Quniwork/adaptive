@@ -1,0 +1,83 @@
+// slideshow
+.ele-slideshow-wrap {
+    position: relative;
+    width: 100%;
+    height: image-height("slider.jpg");
+    z-index: 2;
+    top: 0;
+    ul li a .img {
+        background-size: 100%;
+    }
+}
+.js-ele-slideshow-control-wrap {
+    position: absolute;
+    bottom: 10px;
+    z-index: 9;
+}
+.ele-slideshow-arrow-wrap {
+    top: 50%;
+    .ele-slideshow-arrow {
+        position: absolute;
+        z-index: 9;
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        background: image-url("slider_arrow.png") top center no-repeat;
+        opacity: 0.5;
+        &.ele-slideshow-arrow-right {
+            right: 0;
+            background-position: bottom center;
+        }
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+.ele-slideshow-nav {
+    > a {
+        display: inline-block;
+        width: 50px;
+        height: 5px;
+        background-color: #eee;
+        &.active {
+            background-color: $color-basic;
+        }
+    }
+}
+.run-line {
+    height: 1px;
+    background-color: $color-basic;
+    position: absolute;
+    z-index: 9;
+}
+
+// news
+.news-wrap {
+    .msgNews {
+        line-height: 30px;
+        > a {
+            &:hover {
+                color: $color-basic;
+            }
+        }
+    }
+}
+
+// game
+.first-game-wrap {
+    .first-game {
+        display: inline-block;
+        float: left;
+        width: 250px;
+        height: 250px;
+        transition: all .3s ease;
+    }
+    @for $i from 1 through 4{
+        .first-game0#{$i}{
+            background-image: image-url('game0#{$i}.jpg');
+            &:hover{
+                background-image: image-url('game0#{$i}_over.jpg');
+            }
+        }
+    }
+}

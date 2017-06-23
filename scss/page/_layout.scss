@@ -1,0 +1,524 @@
+// 主要置中區塊
+.wrapper {
+    @include container-fixed;
+}
+.clearfix {
+    @include clearfix;
+}
+
+#mainBody {
+	@extend .wrapper;
+	.game & {
+	}
+}
+
+// header
+#page-header {
+	position: relative;
+    .header-top {
+        text-align: right;
+        padding: 10px 0;
+    }
+    .header-bottom {
+        padding-bottom: 10px;
+    }
+}
+.logo {
+    float: left;
+    #ele-logo-img {
+        display: inline-block;
+        width: image-width("logo.png");
+        height: image-height("logo.png");
+        background: image-url('logo.png') top center no-repeat;
+        background-size: 100%;
+        cursor: pointer;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+// mainnav
+.mainnav-wrap {
+	float: right;
+}
+.mainnav {
+	li {
+		display: inline-block;
+        float: left;
+		a {
+            display: block;
+            width: 100px;
+            text-align: center;
+            line-height: image-height("logo.png");
+			&:hover {
+				color: #fff;
+                background-color: $color-basic;
+			}
+		}
+		&.current {
+            a {
+                color: #fff;
+                background-color: $color-basic;
+            }
+        }
+	}
+}
+.ele-drop-group {
+	background: $body-bg;
+	a {
+		width: 100px;
+		display: block;
+        color: #fff;
+        background-color: $color-basic;
+        line-height: 28px;
+		text-align: center;
+		&:hover{
+			background-color: darken($color-basic, 10%);
+		}
+	}
+}
+
+.meminfo-wrap {
+    display: inline-block;
+    .mem-info, .SU-Menual, .ele-obalance-wrap {
+        display: inline-block;
+    }
+    .mem-info {
+        margin-right: 20px;
+        .ele-accinfo, .ele-acc-unit {
+            display: inline-block;
+        }
+        .ele-acc-unit {
+            position: relative;
+            padding-left: 10px;
+        }
+    }
+    .login-Menual {
+        > li {
+            display: inline-block;
+            a {
+                padding: 0 3px;
+                &:hover {
+                    color: $color-basic;
+                }
+            }
+            #MsgNotReadCount {
+                color: $color-basic;
+            }
+        }
+    }
+}
+.ele-obalance-item-wrap {
+    display: none;
+    position: absolute;
+    z-index: 9;
+    width: 270px;
+    color: #fff;
+    background: $color-basic;
+    .ele-obalance-item {
+        padding: 10px;
+        .ele-obalance {
+            line-height: 16px;
+            padding-bottom: 4px;
+        }
+    }
+    .ele-balance-tool {
+        text-align: right;
+        background-color: darken($color-basic, 10%);
+        padding: 4px;
+        > a {
+            display: inline-block;
+            color: #fff;
+            background-color: darken($color-basic, 30%);
+            transition: background-color .20s linear;
+            padding: 4px 8px;
+        }
+    }
+}
+
+.ele-lang-wrap {
+    position: relative;
+    display: inline-block;
+    border: 1px solid $color-basic;
+    .ele-lang-group {
+        position: absolute;
+        z-index: 9;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: $color-basic;
+        a {
+            color: #fff;
+            &.ele-lang-current {
+                background-color: darken($color-basic, 10%);
+            }
+        }
+    }
+}
+// //LOGIN
+// .login-wrap {
+// 	.first & {
+// 		position: absolute;
+// 		bottom: 11px;
+// 		left: 0;
+// 		z-index: 3;
+// 		.login-input {
+// 			& input {
+// 				float: none;
+// 				background: none;
+// 				width: 100%;
+// 				height: auto;
+// 				line-height: normal;
+// 				font-size: 14px;
+// 				color: #fff;
+// 				padding: 8px;
+// 				margin: 8px 0;
+// 				border: none;
+// 				border-bottom: 1px solid #4B494C;
+// 				@include placeholder($base-red);
+// 				box-sizing: border-box;
+// 			}
+// 		}
+// 	}
+// }
+// .member-btn {
+// 	cursor: pointer;
+// }
+// .login {
+// 	&-wrap {
+// 		position: relative;
+// 		float: left;
+// 		height: 60px;
+// 		.first & {
+// 			display: none;
+// 			position: absolute;
+// 			width: 244px;
+// 			height: 250px;
+// 			bottom: 48px;
+// 			background: #1A2529;
+// 			border: 1px solid #4B494C;
+// 			padding: 10px;
+// 			box-sizing: border-box;
+// 			&::after {
+// 				position: absolute;
+// 				content: '';
+// 				display: block;
+// 				bottom: -7px;
+// 				left: 15px;
+// 				width: 12px;
+// 				height: 12px;
+// 				background: #1A2529;
+// 				border-left: 1px solid #4B494C;
+// 				border-bottom: 1px solid #4B494C;
+// 				@include rotate(-45deg);
+// 			}
+// 		}
+// 		.game & {
+// 			height: auto;
+// 			padding: 25px 0 0 0;
+// 		}
+// 		&::after {
+// 			display: none;
+// 		}
+// 	}
+// 	&-input {
+// 		float: left;
+// 		position: relative;
+// 		& span {
+// 			position: relative;
+// 			display: inline-block;
+// 			background: image-url('login_input_bg.png') repeat-x left top;
+// 			&::before, &::after {
+// 				position: absolute;
+// 				content: '';
+// 				display: inline-block;
+// 				width: 2px;
+// 				height: 44px;
+// 				left: 0;
+// 				top: 0;
+// 				background: image-url('login_input_border.jpg') no-repeat left top;
+// 			}
+// 			&::after {
+// 				left: auto;
+// 				right: 0;
+// 			}
+// 		}
+// 		& input {
+// 			width: 180px;
+// 			font-size: 14px;
+// 			height: 44px;
+// 			line-height: 44px;
+// 			padding: 0 0 0 10px;
+// 			border: 0;
+// 			@include placeholder($base-red);
+// 			color: #fff;
+// 			background: none;
+// 			&.key {
+// 				width: 120px;
+// 			}
+// 		}
+// 	}
+// }
+// .btn-submit {
+// 	background: image-url('login_btn_bg.jpg') repeat-x left top;
+// 	@include border-radius(4px);
+// 	display: inline-block;
+// 	font-size: 14px;
+// 	color: #fff;
+// 	width: 81px;
+// 	height: 37px;
+// 	line-height: 37px;
+// 	margin: 0 10px;
+// 	box-sizing: border-box;
+// 	text-align: center;
+// 	@include transition (all .3s);
+// 	&:hover {
+// 		color: #ddd;
+// 	}
+// 	.first &{
+// 		display: block;
+// 		width: 80%;
+// 		margin: 10px auto;
+// 	}
+// 	.game & {
+//     	float: left;
+//     	padding: 0;
+//     }
+// }
+// .login-btn-wrap {
+// 	float: left;
+// 	@include clearfix;
+// 	font-size: 14px;
+// 	color: #fff;
+// 	line-height: 44px;
+// 	li {
+// 		display: inline-block;
+// 		font-size: 14px;
+// 		padding: 0 8px;
+// 		a {
+// 			color: #fff;
+// 			@include transition (all .3s);
+// 			&:hover {
+// 				color: $base-red;
+// 			}
+// 		}
+// 	}
+// 	.first & {
+// 		float: none;
+// 		text-align: center;
+// 		line-height: normal;
+// 	}
+// }
+
+// //LOGON
+// .logon-acc {
+// 	font-size: 14px;
+// 	color: #fff;
+// 	padding: 10px 0;
+// 	line-height: 30px;
+// 	border-bottom: 1px solid #4b484c;
+// 	@include logon-acc;
+// 	//logon-acc的基礎設定
+// 	@include Member-Sub-font(#fff, 1px solid $base-red, #fff);
+//     /*
+//         1. 會員資訊文字顏色
+//         2. 中間的分隔線
+//         3. 額度轉換按鈕顏色
+//         4. Hover的額度轉換按鈕顏色
+//     */
+//     @include Member-Sub-bg($base-red, #253034, $base-red, $base-red);
+//     /*
+//         1. 會員資訊區背景色
+//         2. 下方背景色
+//         3. 額度轉換按鈕背景顏色
+//         4. Hover的額度轉換按鈕背景顏色
+//     */
+//     #Member-Sub{
+//     	letter-spacing: 0px;
+//     }
+//     .acc-name{
+//     	margin-right: 25px;
+//     }
+//     .acc-name,
+//     .first-balance{
+//         font-size: 16px;
+//         color: #fff;
+//     }
+//     .obalance{
+//     	float: left;
+//     	font-size: $font-size-base;
+//         margin: 8px 0 0 4px;
+//         i{
+//             font-size: 14px;
+//             color: $base-red;
+//         }
+//         .game & {
+//         	margin-top: 0;
+//         }
+//     }
+//     .game & {
+//     	float: left;
+//     	border: 0;
+//     	padding: 0 40px 0 0;
+//     	line-height: 37px;
+//     }
+// }
+// .logon-list {
+// 	padding: 20px 0 10px 0;
+// 	li {
+// 		display: inline-block;
+// 		font-size: 14px;
+// 		padding: 8px 0;
+// 		a {
+// 			color: #aaa;
+// 			@include transition (all .3s);
+// 			span {
+// 				color: $base-red;
+// 			}
+// 			&:hover {
+// 				color: $base-red;
+// 			}
+// 		}
+// 		&::after {
+// 			content: '|';
+// 			display: inline-block;
+// 			padding: 0 6px;
+// 			font-size: 14px;
+// 			color: #aaa;
+// 		}
+// 		&:last-of-type {
+// 			&::after {
+// 				display: none;
+// 			}
+// 		}
+// 	}
+// 	.game & {
+//     	float: left;
+//     	padding: 0 20px 0 0;
+//     }
+// }
+
+// //LANG
+// .lang-wrap {
+//     float: left;
+//     width: 196px;
+//     height: 44px;
+//     font-size: 14px;
+//     background: image-url('lang_bg.png') no-repeat left top;
+//     left: 48px;
+//     bottom: 11px;
+//     z-index: 3;
+//     margin: 0 0 0 70px;
+//     a {
+//     	color: $base-red;
+//     }
+//     .first & {
+//     	position: absolute;
+//     	float: none;
+//     	margin: 0;
+//     }
+//     .game & {
+//     	margin-top: 20px;
+//     }
+// }
+
+// #langOption {
+// 	padding: 5px 0;
+// 	background: image-url('lang_option_bg.png') repeat left top;
+// 	a {
+// 		color: #fff;
+// 	}
+// }
+// //CONTAINER
+// #page-container {
+// 	position: relative;
+// 	background: image-url('page_container_bg.jpg') no-repeat center top #0B171B;
+// 	padding: 40px 0 80px 0;
+// 	.first & {
+// 		background: image-url('first_container_bg.jpg') no-repeat center top #1B272B;
+// 		padding: 20px 0 50px 0;
+// 	}
+// }
+
+// //FOOTER
+// #page-footer {
+//     background: #0b1b20;
+//     padding: 40px 0 0 0;
+//     border-top: 1px solid #313b3f;
+//     @include clearfix;
+// }
+// .footer {
+// 	&-left {
+// 		 float: left;
+// 		 width: 744px;
+// 		 padding: 0 0 0 5px;
+// 		 box-sizing: border-box;
+// 	}
+// 	&-nav {
+// 		padding: 20px 0 40px 0;
+// 		li {
+// 			display: inline-block;
+// 			font-size: 14px;
+// 			font-weight: bold;
+// 			padding: 0 14px;
+// 			a {
+// 				color: #fff;
+// 				@include transition (all .3s);
+// 				&:hover {
+// 					color: $base-red;
+// 				}
+// 			}
+// 		}
+// 		.ball &, .game &, .lottery & {
+// 			padding-bottom: 26px;
+// 		}
+// 	}
+// 	&-pay {
+// 		font-size: 20px;
+// 		color: #5F6365;
+// 		padding: 0 0 0 15px;
+// 		img {
+// 			display: block;
+// 			margin: 5px 0 0 0;
+// 		}
+// 	}
+// 	&-mobile {
+// 		float: right;
+// 		width: 280px;
+// 		margin-top: -78px;
+// 		padding: 0 10px 20px 0;
+// 		box-sizing: border-box;
+// 		@include transition (all .3s);
+// 		&:hover {
+// 			@include filter-grayscale(0.2);
+// 		}
+// 	}
+// 	&-bottom {
+// 		border-top: 1px solid #313b3f;
+// 		line-height: 80px;
+// 	}
+// 	&-copyright {
+// 		float: left;
+// 		font-size: 12px;
+// 		color: #fff;
+// 	}
+// 	&-logo {
+// 		float: right;
+// 		height: 80px;
+// 		a {
+// 			position: relative;
+// 		 	display: inline-block;
+// 		 	height: 80px;
+// 		 	padding: 20px 20px 0 20px;
+// 		 	top: 0;
+// 		 	box-sizing: border-box;
+// 		 	@include transition (all .3s);
+// 		 	&:hover {
+// 		 		top: -3px;
+// 		 	}
+// 		 	.ball &, .game &, .lottery & {
+// 		 		padding-top: 0;
+// 		 	}
+// 		}
+// 	}
+// }

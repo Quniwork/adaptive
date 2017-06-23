@@ -1,0 +1,173 @@
+// //HEADER
+// .header-top {
+// 	position: absolute;
+// 	width: $container-width;
+// 	height: 80px;
+// 	left: 50%;
+// 	margin: 0 0 0 -512px;
+// 	z-index: 2;
+// }
+// .banner{
+// 	min-height: 287px;
+// 	position: relative;
+// 	.about &,
+// 	.live &,
+// 	.ball &,
+// 	.game &,
+// 	.lottery &,
+// 	.memberexclusiveii & {
+// 		height: auto;
+//         background-repeat: no-repeat;
+//         background-position: center top;
+// 	}
+// 	$page-banner:live, lottery, memberexclusiveii;
+// 	@each $var in $page-banner{
+// 		.#{$var} & {
+// 			background-image: url(../image/lang/zh-cn/title_#{$var}.png);
+// 		}
+// 	}
+// 	.about & {
+// 		background-image: image-url('lang/zh-cn/title_welcome.png');
+// 	}
+// 	.ball & {
+// 		background-image: image-url('lang/zh-cn/title_sports.png');
+// 	}
+// 	.game & {
+// 		padding: 80px 0 0 0;
+// 		min-height: 234px;
+// 	}
+// }
+
+// //ABOUT
+// #page-sidebar,
+// .page-right {
+// 	float: left;
+// }
+
+// #page-sidebar {
+// 	position: relative;
+// 	background: #0B181B;
+// 	width: 228px;
+// 	&::before {
+// 		position: absolute;
+// 		content: '';
+// 		display: block;
+// 		width: 228px;
+// 		height: 253px;
+// 		top: 0;
+// 		left: 0;
+// 		background: image-url('sidebar_top.png') no-repeat left top;
+// 	}
+// 	&::after {
+// 		position: absolute;
+// 		content: '';
+// 		display: block;
+// 		width: 228px;
+// 		height: 275px;
+// 		bottom: 0;
+// 		left: 0;
+// 		background: image-url('sidebar_bottom.png') no-repeat left top;
+// 	}
+// }
+// .sidemenu {
+// 	position: relative;
+// 	padding: 40px 0 80px 0;
+// 	text-align: center;
+// 	z-index: 1;
+// 	li {
+// 		padding: 20px 0;
+// 		font-size: 16px;
+// 		font-weight: bold;
+// 		a {
+// 			position: relative;
+// 			color: #aaa;
+// 			@include transition (all .3s);
+// 			&::before {
+// 				position: absolute;
+// 				content: '';
+// 				display: inline-block;
+// 				width: 0px;
+// 				height: 1px;
+// 				top: 50%;
+// 				left: -35px;
+// 				background: $base-red;
+// 				@include transition (all .3s);
+// 			}
+// 			&::after {
+// 				position: absolute;
+// 				content: '';
+// 				display: inline-block;
+// 				width: 0px;
+// 				height: 1px;
+// 				right: -35px;
+// 				top: 50%;
+// 				background: $base-red;
+// 				@include transition (all .3s);
+// 			}
+// 			&:hover, &.current {
+// 				color: $base-red;
+// 				&::after, &::before {
+// 					width: 26px;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+// .page-right {
+// 	width: 760px;
+// 	padding: 40px 0 0 80px;
+// 	box-sizing: border-box;
+// 	font-size: 14px;
+// 	color: #aaa;
+// 	line-height: 30px;
+// 	p{
+// 		padding-bottom: 30px;
+// 		text-indent: 2em;
+// 		margin-left: -2em;
+// 	}
+// }
+
+// //CASINO
+// .game-slider-wrap {
+// 	max-width: 960px !important;
+// 	height: 234px !important;
+// 	.slider {
+// 		height: 234px !important;
+// 	}
+// }
+// .game-menu .game-menu-filter span .game-filter-num {
+// 	color: #ff0000;
+// }
+// .game .game-box-view li a:hover i, .game .game-box-view li a:focus i, .game .game-box-view li a:active i, .game .game-box-view li a.active i {
+// 	color: $base-red;
+// }
+// .game-menu-filter {
+// 	color: #afafaf !important;
+// 	span {
+// 		color: #999 !important;
+// 	}
+// }
+
+// //PROMOTIONS
+// .memberexclusiveii-wrap {
+//     .promotionsImg {
+//     	position: relative;
+//         display: block;
+//         width: image-width('not-use/promotion01.png');
+//         height: image-height('not-use/promotion01.png');
+//         @include transition(all .3s ease);
+//         margin: 0 auto;
+//     }
+//     @for $i from 1 through 3 {
+//         .promotions0#{$i} {
+//             background: image-url('not-use/promotion0#{$i}.png') no-repeat center top;
+//             padding-bottom: 2px;
+//             &:hover {
+// 				background: image-url('not-use/promotion0#{$i}_over.png') no-repeat;
+//             }
+//         }
+//     }
+// }
+// .memExclusive {
+// 	padding: 0 0 30px 0;
+// }

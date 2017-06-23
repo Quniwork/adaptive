@@ -1,0 +1,124 @@
+// LANG
+@if $lang-kind==Flag {
+    .ele-lang-wrap {
+        a {
+            display: block;
+            width: 115px;
+            height: 44px;
+            text-align: left;
+            line-height: 44px;
+            background: image-url('not-use/icon-flag25.png') no-repeat;
+            padding-left: 46px;
+            @for $i from 1 through 3 {
+                &.flag0#{$i} {
+                    background-position: 15px 54px-40px*$i;
+                }
+            }
+        }
+    }
+} @else {}
+
+// FIRST GAME
+@if $first-game-format==pnglang {
+    .first-game {
+        a {
+            float: left;
+            width: image-width($lang+'game01.png');
+            height: image-height($lang+'game01.png');
+        }
+    }
+    @each $var in $first-game {
+        .first-#{$var} {
+            background: image-url($lang+'#{$var}.png') no-repeat;
+            &:hover {
+                background: image-url($lang+'#{$var}_over.png') no-repeat;
+            }
+        }
+    }
+} @else if $first-game-format==jpglang {
+    .first-game {
+        a {
+            float: left;
+        }
+    }
+    @each $var in $first-game {
+        .first-#{$var} {
+            background: image-url($lang+'#{$var}.jpg') no-repeat;
+            width: image-width($lang+'#{$var}.jpg');
+            height: image-height($lang+'#{$var}.jpg');
+            &:hover {
+                background: image-url($lang+'#{$var}_over.jpg') no-repeat;
+            }
+        }
+    }
+} @else if $first-game-format==png {
+    .first-game {
+        a {
+            float: left;
+            width: image-width('game01.png');
+            height: image-height('game01.png');
+        }
+    }
+    @each $var in $first-game {
+        .first-#{$var} {
+            background: image-url('#{$var}.png') no-repeat;
+            &:hover {
+                background: image-url('#{$var}_over.png') no-repeat;
+            }
+        }
+    }
+} @else if $first-game-format==jpg {
+    .first-game {
+        a {
+            float: left;
+            width: image-width('game01.jpg');
+            height: image-height('game01.jpg');
+        }
+    }
+    @each $var in $first-game {
+        .first-#{$var} {
+            background: image-url('#{$var}.jpg') no-repeat;
+            &:hover {
+                background: image-url('#{$var}_over.jpg') no-repeat;
+            }
+        }
+    }
+} @else {}
+
+// fIRST SLIDESHOW
+@if $first-slider==true {
+    .ele-slideshow-wrap {
+        position: relative;
+        width: 100%;
+        ul {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            li {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                a {
+                    display: block;
+                    .img {
+                        width: 100%;
+                        height: $first-height;
+                        background-position: top center;
+                        background-repeat: no-repeat;
+                    }
+                }
+            }
+        }
+    }
+    .ele-slideshow-scroll {
+        overflow: hidden;
+        position: absolute;
+        z-index: 1;
+        margin: 0 auto;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+} else {}
