@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html class="lottery zh-cn">
+<html class="game zh-cn">
 <head>
     <meta charset="UTF-8">
-    <title>彩票游戏</title>
+    <title>电子游艺</title>
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/style.css">
@@ -14,22 +14,44 @@
     <!-- page-header -->
     <div id="page-header">
         <div class="header-top clearfix">
-            <!-- login -->
-            <div id="vue-meminfo" class="login-wrap">
-                <p class="login-unit login-unit-user">
-                    <input name="username" type="text" class="login-input login-acc" placeholder="帐号">
-                </p>
-                <p class="login-unit login-unit-pwd">
-                    <input name="passwd" type="passwd" class="login-input" placeholder="密码">
-                </p>
-                <p class="login-unit login-unit-chk">
-                    <input name="rmNum" type="text" class="login-input login-placeholder" placeholder="验证码">
-                </p>
-                <a class="link-login" href="index_login.php">登入</a>
-                <a class="link-join" href="#">注册</a>
-                <a class="link-forgetpw" href="#">忘记密码</a>
+            <!-- meminfo -->
+            <div id="vue-meminfo" class="meminfo-wrap">
+                <div class="mem-info">
+                    <div class="ele-accinfo ele-acc-name"><span>帳號：</span><strong>{{account}}</strong></div>
+                    <div class="ele-acc-unit">
+                        <div id="_bbsportBalance" class="ele-accinfo ele-first-balance">
+                            <span>BBIN餘額：</span>
+                            <strong>{{total}}</strong>
+                        </div>
+                        <div id="js-ele-obalance-wrap" class="ele-obalance-wrap">
+                            <div class="ele-accinfo ele-other-balance">
+                                <i class="fa fa-plus-square"></i>
+                            </div>
+                        </div>
+                        <div id="js-ele-obalance-item-wrap" class="ele-obalance-item-wrap">
+                            <div class="ele-obalance-item">
+                                <div class="ele-obalance" v-for="todo in todos">
+                                    <span>{{todo.name}}</span>
+                                    <strong>{{todo.balance}}</strong>
+                                </div>
+                            </div>
+                            <div class="ele-balance-tool">
+                                <a href="#">额度转换</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="SU-Menual clearfix">
+                    <ul class="login-Menual">
+                        <li><a href="#">會員中心</a></li>
+                        <li><a href="#">線上存款</a></li>
+                        <li> <a href="#">線上取款</a></li>
+                        <li><a href="#">額度轉換</a></li>
+                        <li><a href="index.php">登出</a></li>
+                    </ul>
+                </div>
             </div>
-            <!-- end login -->
+            <!-- end meminfo -->
             <!-- lang -->
             <div id="ele-lang-wrap" class="ele-lang-wrap">
                 <div class="ele-lang-title">
@@ -59,14 +81,14 @@
                         </div>
                     </li>
                     <li id="LS-live" class="LS-live"><a href="live.php"><span>视讯直播</span></a></li>
-                    <li id="LS-game" class="LS-game"><a href="#"><span>电子游艺</span></a>
+                    <li id="LS-game" class="LS-game"><a href="#" class="current"><span>电子游艺</span></a>
                         <div id="nav-game" class="ele-drop-group" style="display:none">
                             <div class="lsub-inner-wrap">
                                 <a v-for="todo in todos" :href="todo.link">{{todo.name}}</a>
                             </div>
                         </div>
                     </li>
-                    <li id="LS-lottery" class="LS-lottery"><a href="lottery.php" class="current"><span>彩票游戏</span></a></li>
+                    <li id="LS-lottery" class="LS-lottery"><a href="lottery.php"><span>彩票游戏</span></a></li>
                     <li id="LS-memberexclusiveii" class="LS-memberexclusiveii"><a href="promotions.php"><span>优惠活动</span></a></li>
                     <li id="LS-mobile" class="LS-mobile"><a href="#"><span>手机下注</span></a></li>
                     <li id="LS-service" class="LS-service"><a href="#"><span>在线客服</span></a></li>
@@ -74,22 +96,21 @@
             </div>
             <!-- end mainnav -->
             <!-- banner -->
-        	<div class="banner-wrap"></div>
-        	<!-- end banner -->
+            <div class="banner-wrap"></div>
+            <!-- end banner -->
         </div>
     </div>
     <!-- end page-header -->
 	<div id="page-container">
 		<div id="page-body">
-			 <!--lottery -->
-			<div class="lottery-wrap">
-				<?php include "../template/lottery/index.php"; ?>
+			<!--game-->
+			<div class="game-wrap">
+				<?php include '../template/casino/index.php'; ?>
 			</div>
-			<!--end lottery-->
+			<!--end game-->
 		</div>
 	</div>
 	<!--end page-container-->
-
 	<!-- page-footer -->
     <div id="page-footer">
         <div class="footer-info"></div>
@@ -102,7 +123,7 @@
             <a href="#">常见问题</a>
             <a href="#">责任博彩</a>
         </div>
-        <div class="copyright">COPYRIGHT © <a href="#">BBIN</a> RESERVED</div>
+        <div class="copyright">COPYRIGHT © BBIN RESERVED</div>
         <a href="#" class="bblogo">
             <img src="image/bbinlogo.png">
         </a>
@@ -112,10 +133,12 @@
     </div>
     <!-- end page-footer -->
 </div>
+<!--end mainBody -->
 <!-- Share core Javascript -->
 <script src="js/vue.js"></script>
 <script src="js/vue-app.js"></script>
 <script src="js/ele-common.js"></script>
 <script src="js/ele-dropmenu.js"></script>
+<script src="js/ele-obalance.js"></script>
 </body>
 </html>

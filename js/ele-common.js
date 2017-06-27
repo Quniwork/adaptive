@@ -21,6 +21,8 @@ function toggleColor(id, arr, s) {
     self.run();
 }
 
+
+
 // form placeholder
 $('[placeholder]').focus(function() {
     var input = $(this);

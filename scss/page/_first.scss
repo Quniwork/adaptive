@@ -40,13 +40,13 @@
         height: 5px;
         background-color: #eee;
         &.active {
-            background-color: $color-basic;
+            background-color: colors(primary);
         }
     }
 }
 .run-line {
     height: 1px;
-    background-color: $color-basic;
+    background-color: colors(primary);
     position: absolute;
     z-index: 9;
 }
@@ -57,26 +57,7 @@
         line-height: 30px;
         > a {
             &:hover {
-                color: $color-basic;
-            }
-        }
-    }
-}
-
-// game
-.first-game-wrap {
-    .first-game {
-        display: inline-block;
-        float: left;
-        width: 250px;
-        height: 250px;
-        transition: all .3s ease;
-    }
-    @for $i from 1 through 4{
-        .first-game0#{$i}{
-            background-image: image-url('game0#{$i}.jpg');
-            &:hover{
-                background-image: image-url('game0#{$i}_over.jpg');
+                color: colors(primary);
             }
         }
     }

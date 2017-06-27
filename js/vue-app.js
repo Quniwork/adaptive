@@ -18,7 +18,7 @@ var gameMneu = new Vue({
     data: {
         todos: [{
             name: 'BB电子',
-            link: 'casino_login.php'
+            link: 'casino.php'
         }, {
             name: 'MG电子',
             link: '#'

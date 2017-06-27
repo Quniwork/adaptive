@@ -1,10 +1,17 @@
 // 變數
 // --------------------------------------------------
 //== 顏色
-$color-dark:   #2A363B !default;
-$color-light:  #F8F6F6 !default;
-$color-basic:  #CF4647 !default;
-$color-second: #F5D061 !default;
+$colors: (
+    dark:    #2A363B,
+    light:   #F8F6F6,
+    primary: #CF4647,
+    accent:  #46c100,
+    warning: #ff7e00,
+    danger:  #f31809
+)!default;
+@function colors($key) {
+    @return map-get($colors, $key);
+}
 
 //== Scaffolding
 //
@@ -14,9 +21,9 @@ $body-bg       : #eee !default;
 //** Global text color on `<body>`.
 $text-color    : #222 !default;
 //** Global textual link color.
-$link-color    : #000 !default;
+$link-color    : rgba(colors(dark), .9) !default;
 //** Link hover color set via `darken()` function.
-$link-hover-color: lighten(#000, 40%) !default;
+$link-hover-color: colors(primary) !default;
 
 
 //== Typography
@@ -28,7 +35,7 @@ $line-height-base: normal !default;
 
 
 //頁面寬度
-$container-width: 1000px; //主要置中區塊寬度
+$container-width: 960px; //主要置中區塊寬度
 $grid-gutter-width: 0; //主要置中區塊兩邊空隙
 
 
@@ -37,17 +44,17 @@ $lang: 'lang/zh-cn/';
 
 //-----------------------------------------------------------------------------------------------------------------------------
 //語系種類
-$lang-kind: Flag; //false=不使用; Flag=使用國旗
+$lang-kind: selectFlag; //false=不使用; Flag=使用inline國旗, selectFlag=使用select國旗
+$lang-img: 'lang_circle2';
 
 //-----------------------------------------------------------------------------------------------------------------------------
 
 //首頁遊戲圖
-$first-game-format: false; //false=不使用; 遊戲圖圖片格式: png or jpg ; 放置在語系中: pnglang or jpglang
+$first-game-lang: true; //true=使用, false=不使用;
+$first-game-format: jpg; //遊戲圖圖片格式: png or jpg;
 
 
 //-----------------------------------------------------------------------------------------------------------------------------
 //首頁遊戲圖
 $first-slider: true;
 $first-height: image-height('slider.jpg');
-
-

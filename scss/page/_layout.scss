@@ -1,4 +1,4 @@
-// 主要置中區塊
+// =================== 主要置中區塊
 .wrapper {
     @include container-fixed;
 }
@@ -12,15 +12,13 @@
 	}
 }
 
-// header
+// =================== header
 #page-header {
 	position: relative;
+    padding-bottom: 10px;
     .header-top {
         text-align: right;
         padding: 10px 0;
-    }
-    .header-bottom {
-        padding-bottom: 10px;
     }
 }
 .logo {
@@ -38,46 +36,85 @@
     }
 }
 // mainnav
-.mainnav-wrap {
-	float: right;
-}
+@mixin mainnav(
+    // 選單 =
+    $link-width: 100px,
+    $line-height: image-height("logo.png"),
+    $link-color: $link-color,
+    $link-bg: transparent,
+    $link-color-hover: #fff,
+    $link-bg-hover: colors(primary),
+    // 下拉選單 = 1 連結文字, 2 連結背景, 3 hover:連結文字, 4 hover:連結背景, 5 連結寬度, 6 連結高度
+    $drop-link-color: #fff,          //1
+    $drop-link-bg: colors(primary),  //2
+    $drop-link-color-hover: #fff,    //3
+    $drop-link-bg-hover: darken(colors(primary), 10%),  //4
+    $drop-link-width: 100px,    //5
+    $drop-link-height: 40px     //6
+) {
 .mainnav {
-	li {
-		display: inline-block;
+    &-wrap {
+        float: right;
+    }
+    li {
+        display: inline-block;
         float: left;
-		a {
+        a {
             display: block;
-            width: 100px;
+            width: $link-width;
             text-align: center;
-            line-height: image-height("logo.png");
-			&:hover {
-				color: #fff;
-                background-color: $color-basic;
-			}
-		}
-		&.current {
-            a {
-                color: #fff;
-                background-color: $color-basic;
+            line-height: $line-height;
+            color: $link-color;
+            background: $link-bg;
+            transition: background .4s ease;
+            &.current, &:hover {
+                color: $link-color-hover;
+                background: $link-bg-hover;
+                transition: background .1s cubic-bezier(0, 0.21, 0.68, 0.79);
             }
         }
-	}
+    }
 }
 .ele-drop-group {
-	background: $body-bg;
-	a {
-		width: 100px;
-		display: block;
-        color: #fff;
-        background-color: $color-basic;
-        line-height: 28px;
-		text-align: center;
-		&:hover{
-			background-color: darken($color-basic, 10%);
-		}
-	}
+    a {
+        width: $drop-link-width;
+        display: block;
+        text-align: center;
+        line-height: $drop-link-height;
+        color: $drop-link-color;
+        background-color: $drop-link-bg;
+        &:hover{
+            color: $drop-link-color-hover;
+            background-color: $drop-link-bg-hover;
+        }
+    }
 }
+}
+@include mainnav;
+// end mainnav
 
+// login
+.login-wrap {
+    display: inline-block;
+    .login-unit {
+        display: inline-block;
+        input {
+            // placeholder欄位 = 1 背景色, 2 邊框
+            @include input-color(
+                transparent, //1
+                1px solid lighten(colors(primary),35%) //2
+            );
+            // placeholder顏色 = 1 點擊前, 2 點擊後
+            @include input-font-color(
+                colors(primary), //1
+                #ccc //2
+            );
+        }
+    }
+}
+// end login
+
+// meminfo
 .meminfo-wrap {
     display: inline-block;
     .mem-info, .SU-Menual, .ele-obalance-wrap {
@@ -98,217 +135,27 @@
             display: inline-block;
             a {
                 padding: 0 3px;
-                &:hover {
-                    color: $color-basic;
-                }
-            }
-            #MsgNotReadCount {
-                color: $color-basic;
             }
         }
     }
 }
-.ele-obalance-item-wrap {
-    display: none;
-    position: absolute;
-    z-index: 9;
-    width: 270px;
-    color: #fff;
-    background: $color-basic;
-    .ele-obalance-item {
-        padding: 10px;
-        .ele-obalance {
-            line-height: 16px;
-            padding-bottom: 4px;
-        }
-    }
+// 餘額顯示 = 1 文字顏色, 2 背景顏色, 3 餘額轉換背景顏色, 4 餘額轉換按鈕文字顏色, 5 餘額轉換按鈕背景顏色
+@include meminfo (
+    #fff, //1
+    colors(primary), //2
+    darken(colors(primary), 10%), //3
+    #fff, //4
+    darken(colors(primary), 30%) //5
+) {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    border-radius: 2px;
     .ele-balance-tool {
-        text-align: right;
-        background-color: darken($color-basic, 10%);
-        padding: 4px;
         > a {
-            display: inline-block;
-            color: #fff;
-            background-color: darken($color-basic, 30%);
-            transition: background-color .20s linear;
-            padding: 4px 8px;
+            border-radius: 2px;
         }
     }
 }
-
-.ele-lang-wrap {
-    position: relative;
-    display: inline-block;
-    border: 1px solid $color-basic;
-    .ele-lang-group {
-        position: absolute;
-        z-index: 9;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: $color-basic;
-        a {
-            color: #fff;
-            &.ele-lang-current {
-                background-color: darken($color-basic, 10%);
-            }
-        }
-    }
-}
-// //LOGIN
-// .login-wrap {
-// 	.first & {
-// 		position: absolute;
-// 		bottom: 11px;
-// 		left: 0;
-// 		z-index: 3;
-// 		.login-input {
-// 			& input {
-// 				float: none;
-// 				background: none;
-// 				width: 100%;
-// 				height: auto;
-// 				line-height: normal;
-// 				font-size: 14px;
-// 				color: #fff;
-// 				padding: 8px;
-// 				margin: 8px 0;
-// 				border: none;
-// 				border-bottom: 1px solid #4B494C;
-// 				@include placeholder($base-red);
-// 				box-sizing: border-box;
-// 			}
-// 		}
-// 	}
-// }
-// .member-btn {
-// 	cursor: pointer;
-// }
-// .login {
-// 	&-wrap {
-// 		position: relative;
-// 		float: left;
-// 		height: 60px;
-// 		.first & {
-// 			display: none;
-// 			position: absolute;
-// 			width: 244px;
-// 			height: 250px;
-// 			bottom: 48px;
-// 			background: #1A2529;
-// 			border: 1px solid #4B494C;
-// 			padding: 10px;
-// 			box-sizing: border-box;
-// 			&::after {
-// 				position: absolute;
-// 				content: '';
-// 				display: block;
-// 				bottom: -7px;
-// 				left: 15px;
-// 				width: 12px;
-// 				height: 12px;
-// 				background: #1A2529;
-// 				border-left: 1px solid #4B494C;
-// 				border-bottom: 1px solid #4B494C;
-// 				@include rotate(-45deg);
-// 			}
-// 		}
-// 		.game & {
-// 			height: auto;
-// 			padding: 25px 0 0 0;
-// 		}
-// 		&::after {
-// 			display: none;
-// 		}
-// 	}
-// 	&-input {
-// 		float: left;
-// 		position: relative;
-// 		& span {
-// 			position: relative;
-// 			display: inline-block;
-// 			background: image-url('login_input_bg.png') repeat-x left top;
-// 			&::before, &::after {
-// 				position: absolute;
-// 				content: '';
-// 				display: inline-block;
-// 				width: 2px;
-// 				height: 44px;
-// 				left: 0;
-// 				top: 0;
-// 				background: image-url('login_input_border.jpg') no-repeat left top;
-// 			}
-// 			&::after {
-// 				left: auto;
-// 				right: 0;
-// 			}
-// 		}
-// 		& input {
-// 			width: 180px;
-// 			font-size: 14px;
-// 			height: 44px;
-// 			line-height: 44px;
-// 			padding: 0 0 0 10px;
-// 			border: 0;
-// 			@include placeholder($base-red);
-// 			color: #fff;
-// 			background: none;
-// 			&.key {
-// 				width: 120px;
-// 			}
-// 		}
-// 	}
-// }
-// .btn-submit {
-// 	background: image-url('login_btn_bg.jpg') repeat-x left top;
-// 	@include border-radius(4px);
-// 	display: inline-block;
-// 	font-size: 14px;
-// 	color: #fff;
-// 	width: 81px;
-// 	height: 37px;
-// 	line-height: 37px;
-// 	margin: 0 10px;
-// 	box-sizing: border-box;
-// 	text-align: center;
-// 	@include transition (all .3s);
-// 	&:hover {
-// 		color: #ddd;
-// 	}
-// 	.first &{
-// 		display: block;
-// 		width: 80%;
-// 		margin: 10px auto;
-// 	}
-// 	.game & {
-//     	float: left;
-//     	padding: 0;
-//     }
-// }
-// .login-btn-wrap {
-// 	float: left;
-// 	@include clearfix;
-// 	font-size: 14px;
-// 	color: #fff;
-// 	line-height: 44px;
-// 	li {
-// 		display: inline-block;
-// 		font-size: 14px;
-// 		padding: 0 8px;
-// 		a {
-// 			color: #fff;
-// 			@include transition (all .3s);
-// 			&:hover {
-// 				color: $base-red;
-// 			}
-// 		}
-// 	}
-// 	.first & {
-// 		float: none;
-// 		text-align: center;
-// 		line-height: normal;
-// 	}
-// }
+// end meminfo
 
 // //LOGON
 // .logon-acc {
@@ -363,73 +210,9 @@
 //     	line-height: 37px;
 //     }
 // }
-// .logon-list {
-// 	padding: 20px 0 10px 0;
-// 	li {
-// 		display: inline-block;
-// 		font-size: 14px;
-// 		padding: 8px 0;
-// 		a {
-// 			color: #aaa;
-// 			@include transition (all .3s);
-// 			span {
-// 				color: $base-red;
-// 			}
-// 			&:hover {
-// 				color: $base-red;
-// 			}
-// 		}
-// 		&::after {
-// 			content: '|';
-// 			display: inline-block;
-// 			padding: 0 6px;
-// 			font-size: 14px;
-// 			color: #aaa;
-// 		}
-// 		&:last-of-type {
-// 			&::after {
-// 				display: none;
-// 			}
-// 		}
-// 	}
-// 	.game & {
-//     	float: left;
-//     	padding: 0 20px 0 0;
-//     }
-// }
+// =================== end header
 
-// //LANG
-// .lang-wrap {
-//     float: left;
-//     width: 196px;
-//     height: 44px;
-//     font-size: 14px;
-//     background: image-url('lang_bg.png') no-repeat left top;
-//     left: 48px;
-//     bottom: 11px;
-//     z-index: 3;
-//     margin: 0 0 0 70px;
-//     a {
-//     	color: $base-red;
-//     }
-//     .first & {
-//     	position: absolute;
-//     	float: none;
-//     	margin: 0;
-//     }
-//     .game & {
-//     	margin-top: 20px;
-//     }
-// }
-
-// #langOption {
-// 	padding: 5px 0;
-// 	background: image-url('lang_option_bg.png') repeat left top;
-// 	a {
-// 		color: #fff;
-// 	}
-// }
-// //CONTAINER
+// =================== container
 // #page-container {
 // 	position: relative;
 // 	background: image-url('page_container_bg.jpg') no-repeat center top #0B171B;
@@ -439,14 +222,12 @@
 // 		padding: 20px 0 50px 0;
 // 	}
 // }
+// =================== end container
 
-// //FOOTER
-// #page-footer {
-//     background: #0b1b20;
-//     padding: 40px 0 0 0;
-//     border-top: 1px solid #313b3f;
-//     @include clearfix;
-// }
+// =================== footer
+#page-footer {
+    padding-top: 10px;
+}
 // .footer {
 // 	&-left {
 // 		 float: left;
@@ -522,3 +303,4 @@
 // 		}
 // 	}
 // }
+// =================== end footer

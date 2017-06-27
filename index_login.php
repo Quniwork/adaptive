@@ -73,7 +73,7 @@
             <!-- mainnav -->
             <div class="mainnav-wrap">
                 <ul class="mainnav clearfix">
-                    <li id="LS-first" class="LS-first current"><a href="index.php"><span>首頁</span></a></li>
+                    <li id="LS-first" class="LS-first"><a href="index.php" class="current"><span>首頁</span></a></li>
                     <li id="LS-ball" class="LS-ball"><a href="#"><span>体育赛事</span></a>
                         <div id="nav-ball" class="ele-drop-group" style="display:none">
                             <div class="lsub-inner-wrap">
@@ -151,7 +151,7 @@
             <a href="#">常见问题</a>
             <a href="#">责任博彩</a>
         </div>
-        <div class="copyright">COPYRIGHT © BBIN RESERVED</div>
+        <div class="copyright">COPYRIGHT © <a href="#">BBIN</a> RESERVED</div>
         <a href="#" class="bblogo">
             <img src="image/bbinlogo.png">
         </a>
