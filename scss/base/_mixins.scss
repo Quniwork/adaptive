@@ -105,16 +105,22 @@
 }
 
 // 登入前
-// placeholder欄位 = 背景色, 邊框
-@mixin input-color($bg-color: #f5f5f5, $border: 1px solid #666) {
+// placeholder欄位 ==
+@mixin input-color(
+    $bg-color: #f5f5f5,      // 1 背景色
+    $border: 1px solid #666  // 2 邊框
+) {
     display: inline-block;
     outline: none;
     border: $border;
     background-color: $bg-color;
     padding: 5px;
 }
-// placeholder顏色 = 點擊前,點擊後
-@mixin input-font-color($colorI: #CCC, $colorII: #DDD) {
+// placeholder顏色 ==
+@mixin input-font-color(
+    $colorI: #CCC,  // 1 點擊前
+    $colorII: #DDD  // 2 點擊後
+) {
     &.login-input {
         &::-webkit-input-placeholder {
             color: $colorII;
@@ -134,18 +140,18 @@
     }
 }
 // 登入後
-// 餘額顯示 = 1 文字顏色, 2 背景顏色, 3 餘額轉換背景顏色, 4 餘額轉換按鈕文字顏色, 5 餘額轉換按鈕背景顏色
+// 餘額顯示 ==
 @mixin meminfo(
-    $mem-color: #000,      //1
-    $mem-bg: #fafafa,      //2
-    $mem-tool-bg: #f4f4f4, //3
-    $mem-tool-color: #fff, //4
-    $mem-tool-btn-bg: #555 //5
+    $mem-color: #000,      // 1 文字顏色
+    $mem-bg: #fafafa,      // 2 背景顏色
+    $mem-tool-bg: #f4f4f4, // 3 餘額轉換背景顏色
+    $mem-tool-color: #fff, // 4 餘額轉換按鈕文字顏色
+    $mem-tool-btn-bg: #555 // 5 餘額轉換按鈕背景顏色
 ) {
 .ele-obalance-item-wrap {
     display: none;
     position: absolute;
-    z-index: 999;
+    z-index: 1000;
     width: 270px;
 
     color: $mem-color;

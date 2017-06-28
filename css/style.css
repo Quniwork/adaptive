@@ -382,7 +382,7 @@ img {
 .ele-obalance-item-wrap {
   display: none;
   position: absolute;
-  z-index: 999;
+  z-index: 1000;
   width: 270px;
   color: #fff;
   background: #CF4647;

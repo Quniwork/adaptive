@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>优惠活动</title>
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/style.css">
     <!-- Share core Javascript -->
     <script src="js/jquery.js"></script>
@@ -45,7 +44,7 @@
         </div>
         <div class="header-bottom clearfix">
             <div id="ele-logo-wrap" class="logo">
-                <a href="#" id="ele-logo-img"></a>
+                <a href="index.php" id="ele-logo-img"></a>
             </div>
             <!-- mainnav -->
             <div class="mainnav-wrap">

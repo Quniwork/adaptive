@@ -7,14 +7,14 @@
 }
 
 #mainBody {
-	@extend .wrapper;
-	.game & {
-	}
+    @extend .wrapper;
+    .game & {
+    }
 }
 
 // =================== header
 #page-header {
-	position: relative;
+    position: relative;
     .header-top {
         text-align: right;
         padding: 10px 0;
@@ -66,13 +66,13 @@
     input {
         // placeholder欄位
         @include input-color(
-            transparent,                           // 1 背景色
-            1px solid lighten(colors(primary),35%) // 2 邊框
+            $bg-color: transparent,                         // 1 背景色
+            $border: 1px solid lighten(colors(primary),35%) // 2 邊框
         );
         // placeholder顏色
         @include input-font-color(
-            colors(primary), // 1 點擊前
-            #ccc             // 2 點擊後
+            $colorI: colors(primary), // 1 點擊前
+            $colorII: #ccc            // 2 點擊後
         );
     }
 }
@@ -105,11 +105,11 @@
 }
 // 餘額顯示
 @include meminfo (
-    #fff,                         // 1 文字顏色
-    colors(primary),              // 2 背景顏色
-    darken(colors(primary), 10%), // 3 餘額轉換背景顏色
-    #fff,                         // 4 餘額轉換按鈕文字顏色
-    darken(colors(primary), 30%)  // 5 餘額轉換按鈕背景顏色
+    $mem-color: #fff,                              // 1 文字顏色
+    $mem-bg: colors(primary),                      // 2 背景顏色
+    $mem-tool-bg: darken(colors(primary), 10%),    // 3 餘額轉換背景顏色
+    $mem-tool-color: #fff,                         // 4 餘額轉換按鈕文字顏色
+    $mem-tool-btn-bg: darken(colors(primary), 30%) // 5 餘額轉換按鈕背景顏色
 ) {
     box-shadow: 0 2px 8px rgba(0,0,0,0.5);
     border-radius: 2px;
@@ -148,95 +148,21 @@
 }
 }
 @include login-Menual(
-    $link-color: $link-color,
-    $link-color-hover: $link-hover-color,
-    $line-color: rgba(colors(dark), .3)
+    $link-color: $link-color,             // 1 連結文字顏色
+    $link-color-hover: $link-hover-color, // 2 hover:連結文字顏色
+    $line-color: rgba(colors(dark), .3)   // 3 連結中線顏色, 如無則可直接刪除
 );
-// @mixin Member-Sub-font($Member-color:#333, $Member-border:1px solid #999, $Member-btn-color-primary:#FFF, $Member-btn-color-secondary:flase) {
-//     #Member-Sub {
-//         .MemberDate {
-//             ul li {
-//                 color: $Member-color;
-//                 line-height: 18px;
-//             }
-//             .MemberChange {
-//                 border-top: $Member-border;
-//             }
-//         }
-//         .btn_change {
-//             line-height: 24px;
-//             color: $Member-btn-color-primary;
-//             text-align: center;
-//             @if $Member-btn-color-secondary {}
-//             &:hover {
-//                 color: $Member-btn-color-secondary;
-//             }
-//         }
-//     }
-// }
-// .logon-acc {
-// 	font-size: 14px;
-// 	color: #fff;
-// 	padding: 10px 0;
-// 	line-height: 30px;
-// 	border-bottom: 1px solid #4b484c;
-// 	@include logon-acc;
-// 	//logon-acc的基礎設定
-// 	@include Member-Sub-font(#fff, 1px solid $base-red, #fff);
-//     /*
-//         1. 會員資訊文字顏色
-//         2. 中間的分隔線
-//         3. 額度轉換按鈕顏色
-//         4. Hover的額度轉換按鈕顏色
-//     */
-//     @include Member-Sub-bg($base-red, #253034, $base-red, $base-red);
-//     /*
-//         1. 會員資訊區背景色
-//         2. 下方背景色
-//         3. 額度轉換按鈕背景顏色
-//         4. Hover的額度轉換按鈕背景顏色
-//     */
-//     #Member-Sub{
-//     	letter-spacing: 0px;
-//     }
-//     .acc-name{
-//     	margin-right: 25px;
-//     }
-//     .acc-name,
-//     .first-balance{
-//         font-size: 16px;
-//         color: #fff;
-//     }
-//     .obalance{
-//     	float: left;
-//     	font-size: $font-size-base;
-//         margin: 8px 0 0 4px;
-//         i{
-//             font-size: 14px;
-//             color: $base-red;
-//         }
-//         .game & {
-//         	margin-top: 0;
-//         }
-//     }
-//     .game & {
-//     	float: left;
-//     	border: 0;
-//     	padding: 0 40px 0 0;
-//     	line-height: 37px;
-//     }
-// }
 // =================== end header
 
 // =================== container
 // #page-container {
-// 	position: relative;
-// 	background: image-url('page_container_bg.jpg') no-repeat center top #0B171B;
-// 	padding: 40px 0 80px 0;
-// 	.first & {
-// 		background: image-url('first_container_bg.jpg') no-repeat center top #1B272B;
-// 		padding: 20px 0 50px 0;
-// 	}
+//  position: relative;
+//  background: image-url('page_container_bg.jpg') no-repeat center top #0B171B;
+//  padding: 40px 0 80px 0;
+//  .first & {
+//      background: image-url('first_container_bg.jpg') no-repeat center top #1B272B;
+//      padding: 20px 0 50px 0;
+//  }
 // }
 // =================== end container
 
@@ -245,78 +171,78 @@
     padding-top: 10px;
 }
 // .footer {
-// 	&-left {
-// 		 float: left;
-// 		 width: 744px;
-// 		 padding: 0 0 0 5px;
-// 		 box-sizing: border-box;
-// 	}
-// 	&-nav {
-// 		padding: 20px 0 40px 0;
-// 		li {
-// 			display: inline-block;
-// 			font-size: 14px;
-// 			font-weight: bold;
-// 			padding: 0 14px;
-// 			a {
-// 				color: #fff;
-// 				@include transition (all .3s);
-// 				&:hover {
-// 					color: $base-red;
-// 				}
-// 			}
-// 		}
-// 		.ball &, .game &, .lottery & {
-// 			padding-bottom: 26px;
-// 		}
-// 	}
-// 	&-pay {
-// 		font-size: 20px;
-// 		color: #5F6365;
-// 		padding: 0 0 0 15px;
-// 		img {
-// 			display: block;
-// 			margin: 5px 0 0 0;
-// 		}
-// 	}
-// 	&-mobile {
-// 		float: right;
-// 		width: 280px;
-// 		margin-top: -78px;
-// 		padding: 0 10px 20px 0;
-// 		box-sizing: border-box;
-// 		@include transition (all .3s);
-// 		&:hover {
-// 			@include filter-grayscale(0.2);
-// 		}
-// 	}
-// 	&-bottom {
-// 		border-top: 1px solid #313b3f;
-// 		line-height: 80px;
-// 	}
-// 	&-copyright {
-// 		float: left;
-// 		font-size: 12px;
-// 		color: #fff;
-// 	}
-// 	&-logo {
-// 		float: right;
-// 		height: 80px;
-// 		a {
-// 			position: relative;
-// 		 	display: inline-block;
-// 		 	height: 80px;
-// 		 	padding: 20px 20px 0 20px;
-// 		 	top: 0;
-// 		 	box-sizing: border-box;
-// 		 	@include transition (all .3s);
-// 		 	&:hover {
-// 		 		top: -3px;
-// 		 	}
-// 		 	.ball &, .game &, .lottery & {
-// 		 		padding-top: 0;
-// 		 	}
-// 		}
-// 	}
+//  &-left {
+//       float: left;
+//       width: 744px;
+//       padding: 0 0 0 5px;
+//       box-sizing: border-box;
+//  }
+//  &-nav {
+//      padding: 20px 0 40px 0;
+//      li {
+//          display: inline-block;
+//          font-size: 14px;
+//          font-weight: bold;
+//          padding: 0 14px;
+//          a {
+//              color: #fff;
+//              @include transition (all .3s);
+//              &:hover {
+//                  color: $base-red;
+//              }
+//          }
+//      }
+//      .ball &, .game &, .lottery & {
+//          padding-bottom: 26px;
+//      }
+//  }
+//  &-pay {
+//      font-size: 20px;
+//      color: #5F6365;
+//      padding: 0 0 0 15px;
+//      img {
+//          display: block;
+//          margin: 5px 0 0 0;
+//      }
+//  }
+//  &-mobile {
+//      float: right;
+//      width: 280px;
+//      margin-top: -78px;
+//      padding: 0 10px 20px 0;
+//      box-sizing: border-box;
+//      @include transition (all .3s);
+//      &:hover {
+//          @include filter-grayscale(0.2);
+//      }
+//  }
+//  &-bottom {
+//      border-top: 1px solid #313b3f;
+//      line-height: 80px;
+//  }
+//  &-copyright {
+//      float: left;
+//      font-size: 12px;
+//      color: #fff;
+//  }
+//  &-logo {
+//      float: right;
+//      height: 80px;
+//      a {
+//          position: relative;
+//          display: inline-block;
+//          height: 80px;
+//          padding: 20px 20px 0 20px;
+//          top: 0;
+//          box-sizing: border-box;
+//          @include transition (all .3s);
+//          &:hover {
+//              top: -3px;
+//          }
+//          .ball &, .game &, .lottery & {
+//              padding-top: 0;
+//          }
+//      }
+//  }
 // }
 // =================== end footer

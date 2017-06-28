@@ -14,44 +14,22 @@
     <!-- page-header -->
     <div id="page-header">
         <div class="header-top clearfix">
-            <!-- meminfo -->
-            <div id="vue-meminfo" class="meminfo-wrap">
-                <div class="mem-info">
-                    <div class="ele-accinfo ele-acc-name"><span>帳號：</span><strong>{{account}}</strong></div>
-                    <div class="ele-acc-unit">
-                        <div id="_bbsportBalance" class="ele-accinfo ele-first-balance">
-                            <span>BBIN餘額：</span>
-                            <strong>{{total}}</strong>
-                        </div>
-                        <div id="js-ele-obalance-wrap" class="ele-obalance-wrap">
-                            <div class="ele-accinfo ele-other-balance">
-                                <i class="fa fa-plus-square"></i>
-                            </div>
-                        </div>
-                        <div id="js-ele-obalance-item-wrap" class="ele-obalance-item-wrap">
-                            <div class="ele-obalance-item">
-                                <div class="ele-obalance" v-for="todo in todos">
-                                    <span>{{todo.name}}</span>
-                                    <strong>{{todo.balance}}</strong>
-                                </div>
-                            </div>
-                            <div class="ele-balance-tool">
-                                <a href="#">额度转换</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="SU-Menual clearfix">
-                    <ul class="login-Menual">
-                        <li><a href="#">會員中心</a></li>
-                        <li><a href="#">線上存款</a></li>
-                        <li> <a href="#">線上取款</a></li>
-                        <li><a href="#">額度轉換</a></li>
-                        <li><a href="index.php">登出</a></li>
-                    </ul>
-                </div>
+            <!-- login -->
+            <div id="vue-meminfo" class="login-wrap">
+                <p class="login-unit login-unit-user">
+                    <input name="username" type="text" class="login-input login-acc" placeholder="帐号">
+                </p>
+                <p class="login-unit login-unit-pwd">
+                    <input name="passwd" type="passwd" class="login-input" placeholder="密码">
+                </p>
+                <p class="login-unit login-unit-chk">
+                    <input name="rmNum" type="text" class="login-input login-placeholder" placeholder="验证码">
+                </p>
+                <a class="link-login" href="index_login.php">登入</a>
+                <a class="link-join" href="#">注册</a>
+                <a class="link-forgetpw" href="#">忘记密码</a>
             </div>
-            <!-- end meminfo -->
+            <!-- end login -->
             <!-- lang -->
             <div id="ele-lang-wrap" class="ele-lang-wrap">
                 <div class="ele-lang-title">
@@ -67,7 +45,7 @@
         </div>
         <div class="header-bottom clearfix">
             <div id="ele-logo-wrap" class="logo">
-                <a href="#" id="ele-logo-img"></a>
+                <a href="index.php" id="ele-logo-img"></a>
             </div>
             <!-- mainnav -->
             <div class="mainnav-wrap">

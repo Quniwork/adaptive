@@ -67,7 +67,7 @@
         </div>
         <div class="header-bottom clearfix">
             <div id="ele-logo-wrap" class="logo">
-                <a href="#" id="ele-logo-img"></a>
+                <a href="index.php" id="ele-logo-img"></a>
             </div>
             <!-- mainnav -->
             <div class="mainnav-wrap">
