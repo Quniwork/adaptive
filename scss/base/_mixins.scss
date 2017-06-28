@@ -48,6 +48,62 @@
 
 // ---------------------------- 基本變數 end
 
+// mainnav選單
+@mixin mainnav(
+    // 選單 ==
+    $link-width: 100px,              // 1 連結寬度
+    $line-height: image-height("logo.png"), // 2 連結高度
+    $link-color: $link-color,        // 3 連結文字顏色
+    $link-bg: transparent,           // 4 連結背景顏色
+    $link-color-hover: #fff,         // 5 hover:連結文字顏色
+    $link-bg-hover: colors(primary), // 6 hover:連結背景顏色
+    // 下拉選單 ==
+    $drop-link-width: 100px,         // 1 連結寬度
+    $drop-link-height: 40px,         // 2 連結高度
+    $drop-link-color: #fff,          // 3 連結文字顏色
+    $drop-link-bg: colors(primary),  // 4 連結背景顏色
+    $drop-link-color-hover: #fff,    // 5 hover:連結文字顏色
+    $drop-link-bg-hover: darken(colors(primary), 10%) // 6 hover:連結背景顏色
+) {
+.mainnav {
+    &-wrap {
+        float: right;
+    }
+    li {
+        display: inline-block;
+        float: left;
+        a {
+            display: block;
+            width: $link-width;
+            text-align: center;
+            line-height: $line-height;
+            color: $link-color;
+            background: $link-bg;
+            transition: background .4s ease;
+            &.current, &:hover {
+                color: $link-color-hover;
+                background: $link-bg-hover;
+                transition: background .1s cubic-bezier(0, 0.21, 0.68, 0.79);
+            }
+        }
+    }
+}
+.ele-drop-group {
+    a {
+        width: $drop-link-width;
+        display: block;
+        text-align: center;
+        line-height: $drop-link-height;
+        color: $drop-link-color;
+        background-color: $drop-link-bg;
+        &:hover{
+            color: $drop-link-color-hover;
+            background-color: $drop-link-bg-hover;
+        }
+    }
+}
+}
+
 // 登入前
 // placeholder欄位 = 背景色, 邊框
 @mixin input-color($bg-color: #f5f5f5, $border: 1px solid #666) {
@@ -117,6 +173,32 @@
             background-color: $mem-tool-btn-bg;
             &:hover {
                 background-color: darken($mem-tool-btn-bg, 5%);
+            }
+        }
+    }
+}
+}
+// login-Menual
+@mixin login-Menual(
+    $link-color: $link-color,             // 1 連結文字顏色
+    $link-color-hover: $link-hover-color, // 2 hover:連結文字顏色
+    $line-color:false                     // 3 連結中線顏色, 如無則可直接刪除
+) {
+.login-Menual {
+    li {
+        line-height: 18px;
+        a {
+            color: $link-color;
+            #MsgNotReadCount, &:hover {
+                color: $link-color-hover;
+            }
+        }
+        @if $line-color {
+            &:after {
+                content: '|';
+                display: inline-block;
+                color: $line-color;
+                margin-left: 3px;
             }
         }
     }

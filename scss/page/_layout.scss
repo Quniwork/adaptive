@@ -15,10 +15,12 @@
 // =================== header
 #page-header {
 	position: relative;
-    padding-bottom: 10px;
     .header-top {
         text-align: right;
         padding: 10px 0;
+    }
+    .header-bottom {
+        padding-bottom: 10px;
     }
 }
 .logo {
@@ -36,61 +38,23 @@
     }
 }
 // mainnav
-@mixin mainnav(
-    // 選單 =
-    $link-width: 100px,
-    $line-height: image-height("logo.png"),
-    $link-color: $link-color,
-    $link-bg: transparent,
-    $link-color-hover: #fff,
-    $link-bg-hover: colors(primary),
-    // 下拉選單 = 1 連結文字, 2 連結背景, 3 hover:連結文字, 4 hover:連結背景, 5 連結寬度, 6 連結高度
-    $drop-link-color: #fff,          //1
-    $drop-link-bg: colors(primary),  //2
-    $drop-link-color-hover: #fff,    //3
-    $drop-link-bg-hover: darken(colors(primary), 10%),  //4
-    $drop-link-width: 100px,    //5
-    $drop-link-height: 40px     //6
-) {
-.mainnav {
-    &-wrap {
-        float: right;
-    }
-    li {
-        display: inline-block;
-        float: left;
-        a {
-            display: block;
-            width: $link-width;
-            text-align: center;
-            line-height: $line-height;
-            color: $link-color;
-            background: $link-bg;
-            transition: background .4s ease;
-            &.current, &:hover {
-                color: $link-color-hover;
-                background: $link-bg-hover;
-                transition: background .1s cubic-bezier(0, 0.21, 0.68, 0.79);
-            }
-        }
-    }
-}
-.ele-drop-group {
-    a {
-        width: $drop-link-width;
-        display: block;
-        text-align: center;
-        line-height: $drop-link-height;
-        color: $drop-link-color;
-        background-color: $drop-link-bg;
-        &:hover{
-            color: $drop-link-color-hover;
-            background-color: $drop-link-bg-hover;
-        }
-    }
-}
-}
-@include mainnav;
+// ＊＊ 不修改可直接刪除 ＊＊
+@include mainnav (
+    // 選單 ==
+    $link-width: 100px,              // 1 連結寬度
+    $line-height: image-height("logo.png"), // 2 連結高度
+    $link-color: $link-color,        // 3 連結文字顏色
+    $link-bg: transparent,           // 4 連結背景顏色
+    $link-color-hover: #fff,         // 5 hover:連結文字顏色
+    $link-bg-hover: colors(primary), // 6 hover:連結背景顏色
+    // 下拉選單 ==
+    $drop-link-width: 100px,         // 1 連結寬度
+    $drop-link-height: 40px,         // 2 連結高度
+    $drop-link-color: #fff,          // 3 連結文字顏色
+    $drop-link-bg: colors(primary),  // 4 連結背景顏色
+    $drop-link-color-hover: #fff,    // 5 hover:連結文字顏色
+    $drop-link-bg-hover: darken(colors(primary), 10%) // 6 hover:連結背景顏色
+);
 // end mainnav
 
 // login
@@ -98,18 +62,18 @@
     display: inline-block;
     .login-unit {
         display: inline-block;
-        input {
-            // placeholder欄位 = 1 背景色, 2 邊框
-            @include input-color(
-                transparent, //1
-                1px solid lighten(colors(primary),35%) //2
-            );
-            // placeholder顏色 = 1 點擊前, 2 點擊後
-            @include input-font-color(
-                colors(primary), //1
-                #ccc //2
-            );
-        }
+    }
+    input {
+        // placeholder欄位
+        @include input-color(
+            transparent,                           // 1 背景色
+            1px solid lighten(colors(primary),35%) // 2 邊框
+        );
+        // placeholder顏色
+        @include input-font-color(
+            colors(primary), // 1 點擊前
+            #ccc             // 2 點擊後
+        );
     }
 }
 // end login
@@ -139,13 +103,13 @@
         }
     }
 }
-// 餘額顯示 = 1 文字顏色, 2 背景顏色, 3 餘額轉換背景顏色, 4 餘額轉換按鈕文字顏色, 5 餘額轉換按鈕背景顏色
+// 餘額顯示
 @include meminfo (
-    #fff, //1
-    colors(primary), //2
-    darken(colors(primary), 10%), //3
-    #fff, //4
-    darken(colors(primary), 30%) //5
+    #fff,                         // 1 文字顏色
+    colors(primary),              // 2 背景顏色
+    darken(colors(primary), 10%), // 3 餘額轉換背景顏色
+    #fff,                         // 4 餘額轉換按鈕文字顏色
+    darken(colors(primary), 30%)  // 5 餘額轉換按鈕背景顏色
 ) {
     box-shadow: 0 2px 8px rgba(0,0,0,0.5);
     border-radius: 2px;
@@ -157,7 +121,59 @@
 }
 // end meminfo
 
-// //LOGON
+// login-Menual
+@mixin login-Menual(
+    $link-color: $link-color,
+    $link-color-hover: $link-hover-color,
+    $line-color:false
+) {
+.login-Menual {
+    li {
+        line-height: 18px;
+        a {
+            color: $link-color;
+            #MsgNotReadCount, &:hover {
+                color: $link-color-hover;
+            }
+        }
+        @if $line-color {
+            &:after {
+                content: '|';
+                display: inline-block;
+                color: $line-color;
+                margin-left: 3px;
+            }
+        }
+    }
+}
+}
+@include login-Menual(
+    $link-color: $link-color,
+    $link-color-hover: $link-hover-color,
+    $line-color: rgba(colors(dark), .3)
+);
+// @mixin Member-Sub-font($Member-color:#333, $Member-border:1px solid #999, $Member-btn-color-primary:#FFF, $Member-btn-color-secondary:flase) {
+//     #Member-Sub {
+//         .MemberDate {
+//             ul li {
+//                 color: $Member-color;
+//                 line-height: 18px;
+//             }
+//             .MemberChange {
+//                 border-top: $Member-border;
+//             }
+//         }
+//         .btn_change {
+//             line-height: 24px;
+//             color: $Member-btn-color-primary;
+//             text-align: center;
+//             @if $Member-btn-color-secondary {}
+//             &:hover {
+//                 color: $Member-btn-color-secondary;
+//             }
+//         }
+//     }
+// }
 // .logon-acc {
 // 	font-size: 14px;
 // 	color: #fff;

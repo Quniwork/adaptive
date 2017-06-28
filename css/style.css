@@ -264,11 +264,13 @@ img {
 
 #page-header {
   position: relative;
-  padding-bottom: 10px;
 }
 #page-header .header-top {
   text-align: right;
   padding: 10px 0;
+}
+#page-header .header-bottom {
+  padding-bottom: 10px;
 }
 
 .logo {
@@ -329,28 +331,28 @@ img {
 .login-wrap .login-unit {
   display: inline-block;
 }
-.login-wrap .login-unit input {
+.login-wrap input {
   display: inline-block;
   outline: none;
   border: 1px solid #f4d4d4;
   background-color: transparent;
   padding: 5px;
 }
-.login-wrap .login-unit input.login-input::-webkit-input-placeholder {
+.login-wrap input.login-input::-webkit-input-placeholder {
   color: #ccc;
 }
-.login-wrap .login-unit input.login-input:-moz-placeholder {
+.login-wrap input.login-input:-moz-placeholder {
   /* Firefox 18- */
   color: #ccc;
 }
-.login-wrap .login-unit input.login-input::-moz-placeholder {
+.login-wrap input.login-input::-moz-placeholder {
   /* Firefox 19+ */
   color: #ccc;
 }
-.login-wrap .login-unit input.login-input:-ms-input-placeholder {
+.login-wrap input.login-input:-ms-input-placeholder {
   color: #ccc;
 }
-.login-wrap .login-unit input.login-input.placeholder {
+.login-wrap input.login-input.placeholder {
   color: #CF4647;
 }
 
@@ -413,6 +415,22 @@ img {
 }
 .ele-obalance-item-wrap .ele-balance-tool > a:hover {
   background-color: #4e1415;
+}
+
+.login-Menual li {
+  line-height: 18px;
+}
+.login-Menual li a {
+  color: rgba(42, 54, 59, 0.9);
+}
+.login-Menual li a #MsgNotReadCount, .login-Menual li a:hover {
+  color: #CF4647;
+}
+.login-Menual li:after {
+  content: '|';
+  display: inline-block;
+  color: rgba(42, 54, 59, 0.3);
+  margin-left: 3px;
 }
 
 #page-footer {
